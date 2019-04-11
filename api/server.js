@@ -17,4 +17,10 @@ server.get("/", (req, res) => {
   //   res.send("Server is running!");
 });
 
+server.get("/hobbits", async (req, res) => {
+  const rows = await hobbits.getAll();
+
+  res.status(200).json(rows);
+});
+
 module.exports = server;
